@@ -1,11 +1,11 @@
 export class Animal {
-  constructor(public name: string) {}
+  constructor(protected name: string) {}
 
-  move(): void {
+  protected move(): void {
     console.log(`${this.name} is moving`);
   }
 
-  greet(): void {
+  protected greet(): void {
     console.log(`${this.name} is greeting`);
   }
 }
@@ -24,6 +24,14 @@ export class Dog extends Animal {
     }
   }
 
+  move(): void {
+    super.move();
+  }
+
+  greet(): void {
+    super.greet();
+  }
+
   get owner(): string {
     return this._owner;
   }
@@ -31,5 +39,6 @@ export class Dog extends Animal {
 
 const rocket: Dog = new Dog({ name: 'Rocket', owner: 'Luis' });
 rocket.greet();
+rocket.move();
 rocket.bark(3);
 console.log(rocket.owner);
