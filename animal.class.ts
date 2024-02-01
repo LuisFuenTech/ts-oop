@@ -1,11 +1,15 @@
-export class Animal {
+/*
+Abstract class don't allow to create object from it.
+Only child classes that implements the abstract class
+*/
+export default abstract class Animal {
   constructor(protected name: string) {}
 
   protected move(): void {
     console.log(`${this.name} is moving`);
   }
 
-  protected greet(): void {
+  greet(): void {
     console.log(`${this.name} is greeting`);
   }
 }
@@ -37,8 +41,8 @@ export class Dog extends Animal {
   }
 }
 
-const rocket: Dog = new Dog({ name: 'Rocket', owner: 'Luis' });
+/* const rocket: Dog = new Dog({ name: 'Rocket', owner: 'Luis' });
 rocket.greet();
 rocket.move();
 rocket.bark(3);
-console.log(rocket.owner);
+console.log(rocket.owner); */
