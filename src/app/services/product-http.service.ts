@@ -6,8 +6,7 @@ import { IProduct } from '../models/product.model';
 
 export class ProductHttpService implements IProductService {
   static instance: ProductHttpService | null = null;
-  private url: string =
-    'https://api.escuelajs.co/api/v1/products?limit=25&offset=0';
+  private url: string = 'https://api.escuelajs.co/api/v1/products';
 
   constructor(private name: string) {}
 
@@ -37,7 +36,9 @@ export class ProductHttpService implements IProductService {
   }
 
   async getAll(): Promise<IProduct[]> {
-    const { data } = await axios.get<IProduct[]>(this.url);
+    const { data } = await axios.get<IProduct[]>(
+      `${this.url}?limit=25&offset=0`
+    );
     return data;
   }
 

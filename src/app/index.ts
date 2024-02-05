@@ -10,7 +10,7 @@ const productHttpService = ProductHttpService.createInstance('service_1');
       description: 'This is a new description',
     });
 
-    console.log(products[0], updatedProduct);
+    console.log(products.length, products[0], updatedProduct);
   } catch (error) {
     console.log(error);
   }
